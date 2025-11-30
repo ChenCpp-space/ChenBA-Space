@@ -1,0 +1,22 @@
+{
+  "site": {
+    "name": "ChenBA-space",
+    "version": "1.0.0"
+  },
+  "personal": {
+    "name": "ChenBA",
+    "hobbies": ["音乐制作", "制作一些C++程序"],
+    "bio": "我是一个C++开发者, 也是资深的BA玩家awa, 还是音乐小佬.",
+    "links": {
+      "github": "https://github.com/ChenBA/",
+      "email": "ChenBA-Space@qq.com"
+    }
+  },
+  "styles": {
+    "primaryColor": "#9D4EDD",
+    "secondaryColor": "#121212",
+    "accentColor": "#7B2CBF",
+    "lightColor": "#E0AAFF",
+    "darkColor": "#3700B3"
+  }
+}

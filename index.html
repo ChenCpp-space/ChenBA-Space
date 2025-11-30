@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChenBA-space</title>
+    <meta name="description" content="ChenBA的个人网站 - C++开发者、音乐制作爱好者">
+    <meta name="keywords" content="ChenBA, C++, 音乐制作, 开发者">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loader">
+        <div class="loader__content">
+            <div class="loader__logo">
+                <img src="res/images/hina.jpg" alt="ChenBA" class="loader__image">
+            </div>
+            <div class="loader__text">ChenBA-space</div>
+        </div>
+    </div>
+
+    <!-- 背景视频 -->
+    <div class="background">
+        <video class="background__video" autoplay muted loop playsinline preload="auto">
+            <source src="res/Video/Hina.mp4" type="video/mp4">
+            <div class="background__fallback"></div>
+        </video>
+        <div class="background__overlay"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo">ChenBA-space</div>
+            <div class="navbar__links">
+                <a href="#about" class="navbar__link">关于我</a>
+                <a href="#hobbies" class="navbar__link">爱好</a>
+                <a href="#contact" class="navbar__link">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main">
+        <!-- 个人信息卡片 -->
+        <section class="card card--profile">
+            <div class="card__content">
+                <div class="profile">
+                    <div class="profile__avatar">
+                        <div class="profile__avatar-ring">
+                            <!-- 动态生成的音乐条纹将通过JavaScript添加到这里 -->
+                        </div>
+                        <img src="res/images/hina.jpg" alt="ChenBA" class="profile__image">
+                    </div>
+                    <div class="profile__info">
+                        <h1 class="profile__name" id="name">ChenBA</h1>
+                        <p class="profile__bio" id="bio">我是一个C++开发者, 也是资深的BA玩家awa, 还是音乐小佬.</p>
+                        <p class="profile__bio">初中生</p>
+                        <div class="profile__hobbies" id="hobbies">
+                            <span class="profile__hobby">音乐制作</span>
+                            <span class="profile__hobby">制作一些C++程序</span>
+                        </div>
+                        <div class="profile__links">
+                            <a href="https://github.com/ChenBA/" target="_blank" class="profile__link profile__link--github">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="mailto:ChenBA-Space@qq.com" class="profile__link profile__link--email">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                联系我
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 内容卡片 -->
+        <section class="card card--content">
+            <div class="card__header">
+                <h2 class="card__title">关于我</h2>
+            </div>
+            <div class="card__content">
+                <p>我是一个热爱编程和音乐的开发者，专注于C++开发，同时也喜欢制作音乐和玩游戏。</p>
+                <p>在编程方面，我主要使用C++进行开发，喜欢探索各种技术和框架。在音乐方面，我喜欢制作各种类型的音乐，特别是电子音乐。</p>
+            </div>
+        </section>
+
+        <!-- 歌曲信息卡片 -->
+        <section class="card card--music-info">
+            <div class="card__content">
+                <div class="music-info">
+                    <h2 class="music-info__title" id="musicTitle">Hina-Phonk</h2>
+                    <div class="music-info__details">
+                        <p class="music-info__detail">专辑: <span id="musicAlbum">Hina-Phonk</span></p>
+                        <p class="music-info__detail">歌手: <span id="musicArtist">ChenBA(无上传任何音乐平台, 因为我是个初中生, 需要一个人帮我上传QAQ)</span></p>
+                        <p class="music-info__detail">来源: <span id="musicSource">自己制作awa</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 音乐控制区 -->
+    <div class="music-controls">
+        <div class="music-controls__container">
+            <button class="music-controls__btn music-controls__btn--play" id="playBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </button>
+            <div class="music-controls__progress">
+                <span class="music-controls__time music-controls__time--current" id="currentTime">0:00</span>
+                <input type="range" class="music-controls__slider music-controls__slider--progress" id="progressSlider" min="0" max="100" step="0.1" value="0">
+                <span class="music-controls__time music-controls__time--total" id="totalTime">0:00</span>
+            </div>
+            <div class="music-controls__volume">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <input type="range" class="music-controls__slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+            </div>
+            <button class="music-controls__btn music-controls__btn--wave" id="waveBtn" title="切换波形效果">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- 音乐波形可视化 -->
+    <div class="waveform">
+        <canvas class="waveform__canvas" id="waveformCanvas"></canvas>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
