@@ -13,13 +13,13 @@ class ResourcePreloader {
         // 定义需要预加载的资源路径
         this.resources = [
             // 图片资源
-            'res/images/hina.jpg',
+            'ChenBA-Space/res/images/hina.jpg',
             
             // 音频资源
-            'res/Audio/Phonk-Hina.ogg',
+            'ChenBA-Space/res/Audio/Phonk-Hina.ogg',
             
             // 视频资源
-            'res/Video/Hina.mp4'
+            'ChenBA-Space/res/Video/Hina.mp4'
         ];
         
         this.totalCount = this.resources.length;
