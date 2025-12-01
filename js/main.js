@@ -708,8 +708,11 @@ class ChenBASpace {
     addFadeInAnimations() {
         const elements = document.querySelectorAll('.card, .navbar, .music-controls');
         elements.forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
+            // 只有在加载完成后才应用淡入动画
+            if (element.style.opacity !== '0') {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+            }
             
             setTimeout(() => {
                 element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
@@ -768,24 +771,6 @@ class ChenBASpace {
 
 // 页面加载完成后初始化
 window.addEventListener('DOMContentLoaded', () => {
-    // 预加载关键资源
-    const preloadResources = () => {
-        const resources = [
-            'res/images/hina.jpg',
-            'res/Audio/Phonk-Hina.ogg'
-        ];
-        
-        resources.forEach(src => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = src.includes('.jpg') ? 'image' : 'audio';
-            link.href = src;
-            document.head.appendChild(link);
-        });
-    };
-    
-    preloadResources();
-    
     // 初始化网站
     window.chenBASpace = new ChenBASpace();
 });

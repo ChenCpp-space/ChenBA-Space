@@ -12,11 +12,18 @@
 <body>
     <!-- 加载动画 -->
     <div class="loader">
-        <div class="loader__content">
-            <div class="loader__logo">
-                <img src="res/images/hina.jpg" alt="ChenBA" class="loader__image">
+        <div class="loader__container">
+            <div class="loader__card">
+                <div class="loader__logo">
+                    <img src="res/images/hina.jpg" alt="ChenBA" class="loader__image">
+                </div>
+                <div class="loader__text">ChenBA-space</div>
+                <div class="loader__progress-container">
+                    <div class="loader__progress-bar"></div>
+                </div>
+                <div class="loader__progress-text">0% (0/0)</div>
+                <div class="loader__current-resource">正在准备资源...</div>
             </div>
-            <div class="loader__text">ChenBA-space</div>
         </div>
     </div>
 
@@ -55,7 +62,7 @@
                     </div>
                     <div class="profile__info">
                         <h1 class="profile__name" id="name">ChenBA</h1>
-                        <p class="profile__bio" id="bio">我是一个C++开发者, 也是资深的BA玩家awa, 还是音乐小佬.</p>
+                        <p class="profile__bio" id="bio">我是一个C++开发者, 普通的BA玩家awa, 还是音乐小佬.</p>
                         <p class="profile__bio">初中生</p>
                         <div class="profile__hobbies" id="hobbies">
                             <span class="profile__hobby">音乐制作</span>
@@ -99,7 +106,7 @@
                     <h2 class="music-info__title" id="musicTitle">Hina-Phonk</h2>
                     <div class="music-info__details">
                         <p class="music-info__detail">专辑: <span id="musicAlbum">Hina-Phonk</span></p>
-                        <p class="music-info__detail">歌手: <span id="musicArtist">ChenBA(无上传任何音乐平台, 因为我是个初中生, 需要一个人帮我上传QAQ)</span></p>
+                        <p class="music-info__detail">歌手: <span id="musicArtist">ChenBA(无上传任何音乐平台awa, 因为我是个初中生, 需要一个人帮我上传QAQ)</span></p>
                         <p class="music-info__detail">来源: <span id="musicSource">自己制作awa</span></p>
                     </div>
                 </div>
@@ -142,6 +149,7 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="js/preload.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
