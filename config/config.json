@@ -1,0 +1,34 @@
+{
+    "isUsingFile": false,
+    "root": {
+        "username": "ChenBA-Space",
+        "password": "ChenBA-Password",
+        "title": "ChenBA: 你可以随时使用这个账号awa, 但是请不要分享给他人, 然他们自己找awa, 如果你可以的话叫你的盆友到github上自己找密码, 且你可以修改配置文件",
+        "shareKey": {
+            "key": "ChenBA-Space-root-ShareKey",
+            "title": "ChenBA: 分享密钥, 你可以分享这个密钥给他人, 他人可以使用这个密钥来登录"
+        }
+    },
+
+    "user": {
+        "user-example": {
+            "username": "ChenBA-MainUser",         
+            "password": "User-Password",
+            "title": "ChenBA: 你可以随时使用这个账号awa, 可以分享给他人",
+            "shareKey": {
+                "key": "ChenBA-MainUser-ShareKey",
+                "title": "ChenBA: 分享密钥, 你可以分享这个密钥给他人, 他人可以使用这个密钥来登录"
+            }
+        },
+
+        "user-1": {
+            "username": "ChenBA-User2",         
+            "password": "User2-Password",
+            "title": "ChenBA: 你可以随时使用这个账号awa, 可以分享给他人",
+            "shareKey": {
+                "key": "ChenBA-User2-ShareKey",
+                "title": "ChenBA: 分享密钥, 你可以分享这个密钥给他人, 他人可以使用这个密钥来登录"
+            }
+        }
+    }
+}

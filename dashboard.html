@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="loader" id="loader"></div>
+
+    <!-- 背景图片 -->
+    <div class="background"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="/res/images/Icon.png" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+                <span style="margin-left: 10px; font-weight: 600; color: #333;">ChenBA Space</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">个人主页</a>
+                <a href="#" class="nav-link" id="adminLink" style="display: none;">用户管理</a>
+                <a href="#" class="nav-link" id="logoutBtn">退出登录</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 个人信息卡片 -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="/res/images/hina.jpg" alt="头像" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">用户名</h2>
+                        <p id="profileDesc">个人描述</p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">账号</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">∞</span>
+                        <span class="stat-label">文件</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">分享</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分享密钥卡片 -->
+            <div class="share-card">
+                <h3>🔑 分享密钥</h3>
+                <div class="share-content">
+                    <p style="margin-bottom: 10px;"><strong>标题：</strong><span id="shareTitle">分享密钥标题</span></p>
+                    <div class="share-key-container">
+                        <code id="shareKeyText">密钥文本</code>
+                        <button class="copy-btn" onclick="copyShareKey()">复制</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 音乐播放器区域 -->
+        <section class="music-section">
+            <div class="music-card">
+                <h3>🎵 音乐播放器</h3>
+                
+                <!-- 播放控制区域 -->
+                <div class="player-controls">
+                    <div class="current-song">
+                        <div class="song-info">
+                            <span id="currentSongName" style="font-weight: 500;">请选择歌曲</span>
+                            <span id="currentSongArtist" style="font-size: 0.8rem; color: rgba(0, 0, 0, 0.6);">未知艺术家</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 进度条 -->
+                    <div class="progress-container">
+                        <span class="time" id="currentTime">0:00</span>
+                        <div class="progress-bar">
+                            <div class="progress" id="progress"></div>
+                            <div class="progress-handle" id="progressHandle"></div>
+                        </div>
+                        <span class="time" id="totalTime">0:00</span>
+                    </div>
+                    
+                    <!-- 播放按钮组 -->
+                    <div class="control-buttons">
+                        <button class="control-btn" id="prevBtn" title="上一首">⏮️</button>
+                        <button class="control-btn play-btn" id="playBtn" title="播放">▶️</button>
+                        <button class="control-btn" id="nextBtn" title="下一首">⏭️</button>
+                    </div>
+                </div>
+                
+                <!-- 歌曲列表 -->
+                <div class="song-list">
+                    <h4 style="margin-bottom: 15px;">歌曲列表</h4>
+                    <div id="songList" class="songs-container">
+                        <!-- 歌曲列表将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p id="userTitle">用户标题文本</p>
+            <p style="margin-top: 5px; font-size: 0.9rem; color: rgba(0, 0, 0, 0.6);">分享密钥：<span id="footerShareKey">key文本</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/musicPlayer.js"></script>
+</body>
+</html>
