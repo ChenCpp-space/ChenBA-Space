@@ -184,11 +184,73 @@ loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
     console.log('Form submitted!');
     
-    // 强制设置isValid为true，跳过验证
-    const isValid = true;
+    // 表单验证
+    let isValid = true;
+    let userInfo = null;
     
-    if (isValid) {
-        console.log('Form is valid, processing login...');
+    // 根据当前登录类型进行验证
+    if (currentLoginType === 'password') {
+        // 密码登录验证
+        const inputUsername = username.value.trim();
+        const inputPassword = password.value.trim();
+        
+        // 检查是否为空
+        if (!inputUsername || !inputPassword) {
+            isValid = false;
+        } else {
+            // 检查用户名和密码是否匹配
+            // 检查root用户
+            if (inputUsername === mockUsers.root.username && inputPassword === mockUsers.root.password) {
+                userInfo = { ...mockUsers.root, isRoot: true };
+            } else {
+                // 检查普通用户
+                let foundUser = false;
+                for (const userKey in mockUsers.user) {
+                    const user = mockUsers.user[userKey];
+                    if (inputUsername === user.username && inputPassword === user.password) {
+                        userInfo = { ...user, isRoot: false };
+                        foundUser = true;
+                        break;
+                    }
+                }
+                
+                if (!foundUser) {
+                    isValid = false;
+                }
+            }
+        }
+    } else {
+        // 密钥登录验证
+        const inputShareKey = shareKey.value.trim();
+        
+        if (!inputShareKey) {
+            isValid = false;
+        } else {
+            // 检查密钥是否匹配
+            // 检查root用户密钥
+            if (inputShareKey === mockUsers.root.shareKey.key) {
+                userInfo = { ...mockUsers.root, isRoot: true };
+            } else {
+                // 检查普通用户密钥
+                let foundUser = false;
+                for (const userKey in mockUsers.user) {
+                    const user = mockUsers.user[userKey];
+                    if (inputShareKey === user.shareKey.key) {
+                        userInfo = { ...user, isRoot: false };
+                        foundUser = true;
+                        break;
+                    }
+                }
+                
+                if (!foundUser) {
+                    isValid = false;
+                }
+            }
+        }
+    }
+    
+    if (isValid && userInfo) {
+        console.log('Login successful!');
         // 模拟登录过程
         const btn = this.querySelector('.login-btn');
         const originalText = btn.textContent;
@@ -196,24 +258,41 @@ loginForm.addEventListener('submit', function(e) {
         btn.style.opacity = '0.8';
         btn.disabled = true;
         
-        // 立即登录成功，跳过复杂验证
         setTimeout(() => {
-            console.log('Login successful!');
-            let userInfo = mockUsers.root;
-            userInfo.isRoot = true;
-            
             btn.textContent = '登录成功！';
             btn.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
             
             // 存储用户信息到localStorage
             localStorage.setItem('currentUser', JSON.stringify(userInfo));
             
-            // 立即跳转
+            // 跳转到仪表盘
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
             }, 500);
         }, 1000);
     } else {
-        console.log('Form is invalid!');
+        console.log('Login failed! Invalid credentials.');
+        // 显示错误信息
+        const errorMsg = document.getElementById('errorMessage');
+        if (errorMsg) {
+            errorMsg.textContent = '用户名、密码或密钥不正确！';
+            errorMsg.style.opacity = '1';
+            errorMsg.style.transform = 'translateY(0)';
+        } else {
+            // 如果没有错误信息元素，创建一个
+            const errorElement = document.createElement('div');
+            errorElement.id = 'errorMessage';
+            errorElement.textContent = '用户名、密码或密钥不正确！';
+            errorElement.style.cssText = `
+                color: #ef4444;
+                font-size: 0.875rem;
+                margin-top: 1rem;
+                text-align: center;
+                opacity: 1;
+                transform: translateY(0);
+                transition: all 0.3s ease;
+            `;
+            this.appendChild(errorElement);
+        }
     }
 });

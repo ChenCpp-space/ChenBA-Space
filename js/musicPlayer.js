@@ -258,7 +258,16 @@ class MusicPlayer {
         if (!this.isDragging) return;
         
         const rect = this.elements.progressBar.getBoundingClientRect();
-        let clientX = e.clientX || e.touches[0].clientX;
+        
+        // 获取正确的clientX坐标，区分鼠标事件和触摸事件
+        let clientX;
+        if (e.touches) {
+            // 触摸事件
+            clientX = e.touches[0].clientX;
+        } else {
+            // 鼠标事件
+            clientX = e.clientX;
+        }
         
         // 限制拖动范围
         const minX = rect.left;

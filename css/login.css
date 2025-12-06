@@ -300,6 +300,16 @@ body {
     }
 }
 
+/* 计数器样式 */
+#counter {
+    color: #ffffff !important;
+}
+
+/* 彩蛋信息样式 */
+#easterEgg {
+    color: #ffffff !important;
+}
+
 /* 输入验证状态 */
 .input-field.valid {
     border-color: #4ade80;
